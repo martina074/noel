@@ -69,6 +69,20 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Stile per separare contenuti in una stessa cella (due righe visuali) */
+td {
+    vertical-align: middle; /* Centra verticalmente il contenuto */
+}
+
+.cell-content {
+    display: block;         /* Ogni div sarà su una nuova "linea" dentro la cella */
+    margin: 5px 0;          /* Aggiunge uno spazio tra i due contenuti */
+}
+
+td .cell-content:first-child {
+    font-weight: bold;      /* Rendi la prima riga più prominente, se necessario */
+}
+
 /* Responsività */
 @media (max-width: 768px) {
     body {
