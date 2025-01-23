@@ -1,3 +1,37 @@
+/* Stile generale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+main {
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+h2 {
+    color: #0056b3;
+    margin-bottom: 1em;
+}
+
 /* Stile delle tabelle */
 table {
     width: 100%;
@@ -33,23 +67,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-/* Stile per separare contenuti in una stessa cella (due righe visuali) */
-td {
-    vertical-align: middle; /* Centra verticalmente il contenuto */
-}
-
-.cell-content {
-    display: block;         /* Ogni div sarà su una nuova "linea" dentro la cella */
-    margin: 0;               /* Rimuove i margini tra i blocchi di contenuto */
-}
-
-.separator {
-    border: none;           /* Rimuove i bordi di default */
-    border-top: 1px solid #dee2e6; /* Aggiunge una linea sottile come separazione */
-    margin: 5px 0;          /* Margine tra il contenuto e la linea */
-    width: 100%;            /* Fa sì che la linea si estenda per tutta la larghezza */
 }
 
 /* Responsività */
