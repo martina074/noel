@@ -37,7 +37,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1em;    
-    transform: scale(0.9); /* Riduce la tabella al 90% della dimensione originale */
+    transform: scale(0.75); /* Riduce la tabella al 90% della dimensione originale */
     transform-origin: top left; /* Mantiene l'origine della trasformazione in alto a sinistra */
     margin: 0 auto;
     background-color: white;
