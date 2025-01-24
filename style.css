@@ -1,38 +1,53 @@
 /* Stile generale */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font moderno */
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #f0f8ff; /* Sfondo grigio chiaro */
     color: #333;
 }
 
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
+h1, h2 {
+    color: #2a6b9c; /* Colore blu pastello per i titoli */
+}
+
+/* Header con logo a sinistra */
+.header {
+    background-color: #a9c9f5; /* Celeste pastello per l'header */
+    padding: 1em;
+    display: flex;
+    align-items: center; /* Centra verticalmente il contenuto */
+    justify-content: flex-start; /* Allinea il logo a sinistra */
+    gap: 1em; /* Spazio tra logo e titolo */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* Altezza del logo */
+    width: auto;
 }
 
 h1 {
     margin: 0;
     font-size: 2em;
+    color: #333; /* Colore scuro per il titolo */
 }
 
-main {
-    padding: 2em;
+/* Colori dei link */
+a {
+    color: #58a6d8; /* Blu pastello per i link */
 }
 
-section {
-    margin-bottom: 2em;
+a:hover {
+    text-decoration: underline;
+    color: #4a86c8;
 }
 
-h2 {
-    color: #0056b3;
-    margin-bottom: 1em;
-}
-
-/* Stile delle tabelle */
+/* Stile della tabella */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -50,23 +65,25 @@ th, td {
     text-align: left;
 }
 
+/* Colori delle colonne nella tabella */
+table th:nth-child(-n+3), table td:nth-child(-n+3) {
+    background-color: #e0f7fa; /* Celeste chiaro per le prime 3 colonne */
+}
+
+table th:nth-child(n+4), table td:nth-child(n+4) {
+    background-color: #d3f8e2; /* Verde chiaro per le restanti colonne */
+}
+
+/* Stile dei titoli della tabella */
 th {
     background-color: #e9ecef;
     color: #495057;
     font-weight: bold;
 }
 
-tr:nth-child(even) {
-    background-color: #f1f3f5;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+/* Aggiunta di un effetto hover sulle righe della tabella */
+tr:hover {
+    background-color: #f8f9fa; /* Colore grigio chiaro al passaggio del mouse */
 }
 
 /* Responsività */
