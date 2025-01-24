@@ -1,26 +1,26 @@
 /* Stile per il banner del logo */
-.logo-banner {
+header {
     background-color: #a3c8f2; /* Celeste chiaro */
-    padding: 1em 0;
-    text-align: center;
+    padding: 1em;
 }
 
-.logo-banner img.logo {
-    width: 150px; /* Imposta una larghezza per il logo */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Posiziona logo a sinistra e titolo a destra */
+    max-width: 1200px; /* Imposta una larghezza massima per l'header */
+    margin: 0 auto; /* Centra l'header nella pagina */
+}
+
+.logo {
+    width: 120px; /* Imposta una larghezza per il logo */
     height: auto; /* Mantiene le proporzioni dell'immagine */
 }
 
-/* Stile per il banner del titolo */
-.title-banner {
-    background-color: #ffffff; /* Sfondo bianco per il titolo */
-    padding: 1.5em 0;
-    text-align: center;
-}
-
-.title-banner h1 {
+h1 {
     margin: 0;
-    font-size: 2.5em; /* Dimensione più grande del titolo */
-    color: #333; /* Colore del testo del titolo */
+    font-size: 2em;
+    color: #333; /* Colore del titolo */
 }
 
 /* Stile generale */
