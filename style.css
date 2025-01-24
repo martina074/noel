@@ -36,7 +36,10 @@ h2 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1em;
+    margin-top: 1em;    
+    transform: scale(0.9); /* Riduce la tabella al 90% della dimensione originale */
+    transform-origin: top left; /* Mantiene l'origine della trasformazione in alto a sinistra */
+    margin: 0 auto;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
