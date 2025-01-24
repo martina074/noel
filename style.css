@@ -1,53 +1,39 @@
 /* Stile generale */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font moderno */
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff; /* Sfondo grigio chiaro */
+    background-color: #f8f9fa;
     color: #333;
 }
 
-h1, h2 {
-    color: #2a6b9c; /* Colore blu pastello per i titoli */
-}
-
-/* Header con logo a sinistra */
-.header {
-    background-color: #a9c9f5; /* Celeste pastello per l'header */
-    padding: 1em;
-    display: flex;
-    align-items: center; /* Centra verticalmente il contenuto */
-    justify-content: flex-start; /* Allinea il logo a sinistra */
-    gap: 1em; /* Spazio tra logo e titolo */
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 50px; /* Altezza del logo */
-    width: auto;
+header {
+    background-color: #b3e0cc; /* Verde chiaro */
+    color: #333;
+    padding: 1em 0;
+    text-align: left;
+    padding-left: 1em;
 }
 
 h1 {
     margin: 0;
     font-size: 2em;
-    color: #333; /* Colore scuro per il titolo */
 }
 
-/* Colori dei link */
-a {
-    color: #58a6d8; /* Blu pastello per i link */
+main {
+    padding: 2em;
 }
 
-a:hover {
-    text-decoration: underline;
-    color: #4a86c8;
+section {
+    margin-bottom: 2em;
 }
 
-/* Stile della tabella */
+h2 {
+    color: #007bff;
+    margin-bottom: 1em;
+}
+
+/* Stile delle tabelle */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -65,25 +51,38 @@ th, td {
     text-align: left;
 }
 
-/* Colori delle colonne nella tabella */
-table th:nth-child(-n+3), table td:nth-child(-n+3) {
-    background-color: #e0f7fa; /* Celeste chiaro per le prime 3 colonne */
-}
-
-table th:nth-child(n+4), table td:nth-child(n+4) {
-    background-color: #d3f8e2; /* Verde chiaro per le restanti colonne */
-}
-
-/* Stile dei titoli della tabella */
+/* Intestazioni della tabella */
 th {
-    background-color: #e9ecef;
+    background-color: #d1f0d1; /* Verde chiarissimo */
     color: #495057;
     font-weight: bold;
 }
 
-/* Aggiunta di un effetto hover sulle righe della tabella */
-tr:hover {
-    background-color: #f8f9fa; /* Colore grigio chiaro al passaggio del mouse */
+tr:nth-child(odd) {
+    background-color: #e6ffe6; /* Verde chiaro */
+}
+
+tr:nth-child(even) {
+    background-color: #d1f0d1; /* Verde chiaro ma un po' più scuro della prima riga */
+}
+
+/* Colori per le colonne dalla terza in poi */
+td:nth-child(-n+3) {
+    background-color: #fff8c4; /* Giallo chiaro per le prime 3 colonne */
+}
+
+td:nth-child(n+4) {
+    background-color: #cce7ff; /* Celeste chiaro per le altre colonne */
+}
+
+/* Colori link */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* Responsività */
