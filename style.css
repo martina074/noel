@@ -1,35 +1,22 @@
-/* Stile per il banner del logo */
+/* Stile generale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
 header {
-    background-color: #a3c8f2; /* Celeste chiaro */
-    padding: 1em;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Posiziona logo a sinistra e titolo a destra */
-    max-width: 1200px; /* Imposta una larghezza massima per l'header */
-    margin: 0 auto; /* Centra l'header nella pagina */
-}
-
-.logo {
-    width: 120px; /* Imposta una larghezza per il logo */
-    height: auto; /* Mantiene le proporzioni dell'immagine */
+    background-color: #007bff;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
 }
 
 h1 {
     margin: 0;
     font-size: 2em;
-    color: #333; /* Colore del titolo */
-}
-
-/* Stile generale */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
 }
 
 main {
@@ -41,7 +28,7 @@ section {
 }
 
 h2 {
-    color: #007bff;
+    color: #0056b3;
     margin-bottom: 1em;
 }
 
@@ -63,28 +50,14 @@ th, td {
     text-align: left;
 }
 
-/* Intestazioni della tabella */
 th {
-    background-color: #d1f0d1; /* Verde chiarissimo */
+    background-color: #e9ecef;
     color: #495057;
     font-weight: bold;
 }
 
-tr:nth-child(odd) {
-    background-color: #e6ffe6; /* Verde chiaro */
-}
-
 tr:nth-child(even) {
-    background-color: #d1f0d1; /* Verde chiaro ma un po' più scuro della prima riga */
-}
-
-/* Colori per le colonne dalla terza in poi */
-td:nth-child(-n+3) {
-    background-color: #fff8c4; /* Giallo chiaro per le prime 3 colonne */
-}
-
-td:nth-child(n+4) {
-    background-color: #cce7ff; /* Celeste chiaro per le altre colonne */
+    background-color: #f1f3f5;
 }
 
 a {
