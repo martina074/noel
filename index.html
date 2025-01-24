@@ -7,12 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <div class="header-content">
-        <img src="path/to/your-logo.png" alt="Logo" class="logo">
+    <header>
         <h1>Guida per il mappaggio in OMOP</h1>
-    </div>
-</header>
+    </header>
 
     <main>
         <section>
@@ -274,6 +271,44 @@
 						<td>UCUM</td>
 						<td></td>
 					</tr>		
+					
+                    <tr>
+						<td rowspan="3">Obesity</td>
+						<td rowspan="3"></td>
+						<td>Yes</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>433736</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/433736" target="_blank">Obesity</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>No</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td> 
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">Clinical finding absent</a></td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Terza riga -->
+					<tr>
+						<td>No</td>
+						<td>OBSERVATION</td>
+						<td>value_as_concept_id</td> 
+						<td>433736</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/433736" target="_blank">Obesity</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
 
                     <tr>
 						<td rowspan="2">Cella unita su due righe (Colonna 1)</td> <!-- Cella unita nella colonna 1 -->
