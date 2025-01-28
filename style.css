@@ -48,7 +48,7 @@ table {
     border-collapse: collapse;
     margin-top: 1em;    
     transform: scale(0.82); 
-    transform-origin: top left; 
+    transform-origin: top left;
     margin: 0 auto;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -67,6 +67,10 @@ th {
     background-color: #e9ecef;
     color: #495057;
     font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f1f3f5; 
 }
 
 a {
