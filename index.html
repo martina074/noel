@@ -401,21 +401,6 @@
                         <td>Dato 109</td>
                         <td>Dato 110</td>
                     </tr> -->
-					
-					<script>
-					document.addEventListener("DOMContentLoaded", function() {
-					const rows = document.querySelectorAll("table tbody tr");
-					let alternate = false;
-
-					rows.forEach((row) => {
-						const prevRow = row.previousElementSibling;
-						if (!prevRow || !prevRow.hasAttribute("rowspan")) {
-							alternate = !alternate; // Cambia colore solo se non è una riga con rowspan
-						}
-						row.style.backgroundColor = alternate ? "#f1f3f5" : "white";
-						});
-					});
-					</script>
 
                 </tbody>
             </table>
