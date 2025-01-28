@@ -69,10 +69,6 @@ th {
     font-weight: bold;
 }
 
-tr:nth-child(even) {
-    background-color: #f1f3f5;
-}
-
 a {
     color: #007bff;
     text-decoration: none;
