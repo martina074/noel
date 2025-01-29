@@ -46,11 +46,11 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1em;    
-    transform: scale(0.82); 
+    transform: scale(0.85); 
     transform-origin: top left;
     margin: 0 auto;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(17, 89, 218, 0.17);
 }
 
 table, th, td {
@@ -64,7 +64,7 @@ th, td {
 }
 
 th {
-    background-color: #e9ecef;
+    background-color: #b0c4de /* #e9ecef */;
     color: #495057;
     font-weight: bold;
 }
