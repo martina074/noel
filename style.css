@@ -22,6 +22,7 @@ footer {
     margin-top: 2em;
 }
 
+
 h1 {
     margin: 0;
     font-size: 2em;
@@ -29,7 +30,7 @@ h1 {
 
 main {
     padding: 2em;
-    flex: 1;
+	flex: 1;
 }
 
 section {
@@ -45,8 +46,8 @@ h2 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1em;
-    transform: scale(0.82);
+    margin-top: 1em;    
+    transform: scale(0.82); 
     transform-origin: top left;
     margin: 0 auto;
     background-color: white;
@@ -68,21 +69,8 @@ th {
     font-weight: bold;
 }
 
-/* Stile uniforme per tutte le righe */
 tr {
-    background-color: #ffffff; /* Colore uniforme per le righe */
-}
-
-/* Colore per le colonne dalla 1 alla 3 */
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3) {
-    background-color: #f8d7da; /* Rosa chiaro */
-}
-
-/* Colore per le colonne dalla 4 alla 11 */
-td:nth-child(n+4):nth-child(-n+11) {
-    background-color: #d4edda; /* Verde chiaro */
+    background-color: #f1f3f5; 
 }
 
 a {
