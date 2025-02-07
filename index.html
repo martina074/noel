@@ -1177,7 +1177,7 @@
 					    <td>CAP</td>
 					    <td>Controlled Attenuation Parameter, Misurato direttamente con il fibroscan, indice di steatosi</td>
 					    <td></td>
-					    <td">MEASUREMENT</td>
+					    <td>MEASUREMENT</td>
 					    <td>measurement_concept_id</td>
 					    <td>21494582</td>
 					    <td><a href="https://athena.ohdsi.org/search-terms/terms/21494582" target="_blank">Liver ultrasound attenuation by transient elastography</a></td>
@@ -1260,6 +1260,157 @@
 					    <td>MASLD</td>
 					    <td>Concetto custom mappato nel vocabolario MASLD</td>
 					</tr>
+					
+					<tr>
+						<td rowspan="3">PROC3 (ng/ml)</td>
+						<td rowspan="3">Biomarker indicating active fibrogenesis</td>
+						<td rowspan="3"></td>
+						<td rowspan="3">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4213656</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4213656" target="_blank">Procollagen type III N-terminal propeptide level</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000006</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/2000000006" target="_blank">Biomarker indicating active fibrogenesis (PROC3)</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8842</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8842" target="_blank">nanogram per milliliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">ADAPT score</td>
+						<td rowspan="2">Score di fibrosi epatica</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4157120</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">Assessment scales</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000007</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/2000000007" target="_blank">ADAPT score</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">NASH score</td>
+						<td rowspan="2">Nonalcoholic statohepatitis score</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>1002455</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/1002455" target="_blank">Nonalcolholic steatohepatitis score in Serum or Plasma</a></td>
+						<td>Lab Test</td>
+						<td>Measurement</td>
+						<td>LOINC</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000019</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/2000000019" target="_blank">Nonalcoholic steatohepatitis score</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">Smoke</td>
+						<td rowspan="2">Il paziente è un fumatore?</td>
+						<td>Yes</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>903654</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/903654" target="_blank">Tobacco or its derivatives user</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>OMOP Extension</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>No</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>903651</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/903651" target="_blank">Currently doesn't use tobacco or its derivatives</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>OMOP Extension</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">Rischio Cuore</td>
+						<td rowspan="2">Calcolo del rischio cardiovascolare a 10 anni secondo la carte del rischio ISS italiana</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4194408</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4194408" target="_blank">At increased risk for cardiovascular event</a></td>
+						<td>Clinical Finding</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000020</td>
+						<td>Cardiovascular Risk</td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">SCORE2 ESC</td>
+						<td rowspan="2">Systematic Coronary Risk Evaluation 2, Calcolo del rischio cardiovascolare a 10 secondo le carte del rischio Europee</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4194408</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4194408" target="_blank">At increased risk for cardiovascular event</a></td>
+						<td>Clinical Finding</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000008</td>
+						<td>Systematic Coronary Risk Evaluation 2</td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
 					
 <!--
                     <tr>
