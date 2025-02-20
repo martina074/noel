@@ -1,1367 +1,1927 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OMOP</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <img src="logo.png" width="130">
-            <h1>Guida per il mappaggio in OMOP</h1>
-        </header>
-        <main>
-            <section>
-                <h2>Variabili mappate</h2>
-                <table border='1'>
-<tr>
-    <td>Variable name</td>
-    <td>Variable description </td>
-    <td rowspan="6">Choices</td>
-    <td rowspan="6">Domain</td>
-    <td>Field</td>
-    <td rowspan="6">ID</td>
-    <td rowspan="6">Name</td>
-    <td rowspan="6">Class</td>
-    <td rowspan="6">Domain</td>
-    <td rowspan="6">Vocab </td>
-    <td rowspan="8">Notes</td>
-</tr>
-<tr>
-    <td>GWAS_Code</td>
-    <td>Id paziente</td>
-    <td rowspan="15">PERSON</td>
-    <td>person_id</td>
-</tr>
-<tr>
-    <td rowspan="4">Data nascita</td>
-    <td rowspan="4">Date of birth: DD/MM/YYYY</td>
-    <td>year_of_birth </td>
-</tr>
-<tr>
-    <td>month_of_birth </td>
-</tr>
-<tr>
-    <td>day_of_birth </td>
-</tr>
-<tr>
-    <td>birth_datetime</td>
-</tr>
-<tr>
-    <td rowspan="2">SEX</td>
-    <td rowspan="2">Sex</td>
-    <td>M</td>
-    <td rowspan="2">gender_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8507" target="_blank">8507</a></td>
-    <td>MALE</td>
-    <td rowspan="2">Gender</td>
-    <td rowspan="2">Gender</td>
-    <td rowspan="2">Gender</td>
-</tr>
-<tr>
-    <td>F</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8532" target="_blank">8532</a></td>
-    <td>FEMALE</td>
-</tr>
-<tr>
-    <td rowspan="8">Ethnicity of BIBLE_17may2023.jmp</td>
-    <td rowspan="8">Ethnicity</td>
-    <td>Caucasian</td>
-    <td rowspan="4">race_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8527" target="_blank">8527</a></td>
-    <td>White</td>
-    <td rowspan="7">Race</td>
-    <td rowspan="7">Race</td>
-    <td rowspan="7">Race</td>
-    <td rowspan="8">In base al dominio OMOP corrispondente al valore nella sorgente, registro race o ethnicity</td>
-</tr>
-<tr>
-    <td>Asian</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8515" target="_blank">8515</a></td>
-    <td>Asian</td>
-</tr>
-<tr>
-    <td>North African</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/38003600" target="_blank">38003600</a></td>
-    <td rowspan="5">African</td>
-</tr>
-<tr>
-    <td>South American</td>
-    <td rowspan="4">0</td>
-</tr>
-<tr>
-    <td>Caucasian</td>
-    <td rowspan="4">ethnicity_concept_id</td>
-</tr>
-<tr>
-    <td>Asian</td>
-</tr>
-<tr>
-    <td>North African</td>
-</tr>
-<tr>
-    <td rowspan="5">South American</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/38003563" target="_blank">38003563</a></td>
-    <td>Hispanic or Latino</td>
-    <td>Ethnicity</td>
-    <td>Ethnicity</td>
-    <td>Ethnicity</td>
-</tr>
-<tr>
-    <td rowspan="2">DTPRES metabolic screening</td>
-    <td rowspan="2">Data visita</td>
-    <td rowspan="2">VISIT</td>
-    <td>visit_concept_id</td>
-    <td rowspan="2"><a href="https://athena.ohdsi.org/search-terms/terms/9202" target="_blank">9202</a></td>
-    <td rowspan="2">Outpatient Visit</td>
-    <td rowspan="2">Visit</td>
-    <td rowspan="2">Visit</td>
-    <td rowspan="2">Visit</td>
-    <td rowspan="4">Tutti gli eventi clinici registrati sono collegati alla visita</td>
-</tr>
-<tr>
-    <td>visit_start_date</td>
-</tr>
-<tr>
-    <td rowspan="2">BMI_metabolic screening</td>
-    <td rowspan="5">Body Mass Index</td>
-    <td rowspan="2">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4245997" target="_blank">4245997</a></td>
-    <td rowspan="5">Body Mass Index</td>
-    <td>Observable Entity</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/9531" target="_blank">9531</a></td>
-    <td>kilogram per square meter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="3">Obesity</td>
-    <td>Yes</td>
-    <td>CONDITION</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/433736" target="_blank">433736</a></td>
-    <td rowspan="3">Obesity</td>
-    <td>Disorder</td>
-    <td>Condition</td>
-    <td rowspan="4">SNOMED</td>
-    <td rowspan="11">Se "Yes" registro una condition; Se "no" registro l'assenza</td>
-</tr>
-<tr>
-    <td rowspan="10">No</td>
-    <td rowspan="2">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td>Observation</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/433736" target="_blank">433736</a></td>
-    <td>Obesity</td>
-    <td>Disorder</td>
-    <td>Condition</td>
-</tr>
-<tr>
-    <td rowspan="2">Peso</td>
-    <td rowspan="2">Body Weight</td>
-    <td rowspan="8">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4099154" target="_blank">4099154</a></td>
-    <td rowspan="2">Body Weight</td>
-    <td>Observable Entity</td>
-    <td>Measurement</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/9529" target="_blank">9529</a></td>
-    <td>kilogram</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">Altezza</td>
-    <td rowspan="2">Body Height</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/607590" target="_blank">607590</a></td>
-    <td rowspan="2">Body Height</td>
-    <td>Observable Entity</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8582" target="_blank">8582</a></td>
-    <td>centimeter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">PAMAX</td>
-    <td rowspan="2">Systolic blood pressure</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4152194" target="_blank">4152194</a></td>
-    <td>Systolic Blood Pressure</td>
-    <td>Observable Entity</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8876" target="_blank">8876</a></td>
-    <td>	millimeter mercury column</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">PAMIN</td>
-    <td rowspan="2">Diastolic blood pressure</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4154790" target="_blank">4154790</a></td>
-    <td>Diastolic Blood Pressure</td>
-    <td>Observable Entity</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8876" target="_blank">8876</a></td>
-    <td>	millimeter mercury column</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="4">Anti-ipertensivi YES/no</td>
-    <td rowspan="4">Il paziente assume farmaci Anti-Ipertensivi?</td>
-    <td rowspan="2">Yes</td>
-    <td rowspan="12">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">4202797</a></td>
-    <td>Drug Therapy Finding</td>
-    <td>Clinical Finding</td>
-    <td>Observation</td>
-    <td rowspan="16">SNOMED</td>
-    <td rowspan="4">Antiipertensivo si intende Codice ATC: 
-C02 (concept id: 21600381)
-Se "yes" è presente una terapia con farmaci Anti-Ipertensivi e registro una terapia, altrimenti registro l'assenza di una terapia.</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4146455" target="_blank">4146455</a></td>
-    <td>Antyhypertensive therapy</td>
-    <td>Procedure</td>
-    <td>Procedure</td>
-</tr>
-<tr>
-    <td rowspan="2">No</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td>Observation</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4146455" target="_blank">4146455</a></td>
-    <td>Antyhypertensive therapy</td>
-    <td>Procedure</td>
-    <td>Procedure</td>
-</tr>
-<tr>
-    <td rowspan="4">Ipolipemiz YES/no</td>
-    <td rowspan="4">Il paziente assume farmaci Ipolipemizzanti?</td>
-    <td rowspan="2">yes</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">4202797</a></td>
-    <td>Drug Therapy Finding</td>
-    <td>Clinical Finding</td>
-    <td>Observation</td>
-    <td rowspan="4">Ipolipemizzanti si intende CodiceATC: 
-C10 (concept id: 21601853)
-Se "yes" è presente una terapia con farmaci ipolipemizzanti e registro una terapia, altrimenti registro l'assenza della terapia</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4047080" target="_blank">4047080</a></td>
-    <td>Lipid-lowering therapy</td>
-    <td>Procedure</td>
-    <td>Procedure</td>
-</tr>
-<tr>
-    <td rowspan="2">no</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td>Observation</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4047080" target="_blank">4047080</a></td>
-    <td>Lipid-lowering therapy</td>
-    <td>Procedure</td>
-    <td>Procedure</td>
-</tr>
-<tr>
-    <td rowspan="4">Ipoglcemiz YES/no</td>
-    <td rowspan="4">Il paziente assume farmaci Ipoglicemizzanti?</td>
-    <td rowspan="2">yes</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">4202797</a></td>
-    <td>Drug Therapy Finding</td>
-    <td>Clinical Finding</td>
-    <td rowspan="4">Observation</td>
-    <td rowspan="4">Ipogliicemizanti si intende CodiceATC: 
-A10B (concept id: 21600744)
-Se "yes" è presente una terapia con farmaci Ipoglicemizzanti e registro una terapia, altrimenti registro la'assenza di una terapia</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/3655577" target="_blank">3655577</a></td>
-    <td>Antidiabetic drug therapy observation</td>
-    <td>Observable Entity</td>
-</tr>
-<tr>
-    <td rowspan="2">no</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/3655577" target="_blank">3655577</a></td>
-    <td>Antidiabetic drug therapy observation</td>
-    <td>Observable Entity</td>
-</tr>
-<tr>
-    <td rowspan="3">Hypertension</td>
-    <td rowspan="3">Ipertensione</td>
-    <td>yes</td>
-    <td>CONDITION</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/316866" target="_blank">316866</a></td>
-    <td>Hypertensive disorder</td>
-    <td>Disorder</td>
-    <td>Condition</td>
-    <td rowspan="31">Se "yes" registro la condition. Se "no" ne registro l'assenza</td>
-</tr>
-<tr>
-    <td rowspan="30">no</td>
-    <td rowspan="2">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td>Observation</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/316866" target="_blank">316866</a></td>
-    <td>Hypertensive disorder</td>
-    <td>Disorder</td>
-    <td>Condition</td>
-</tr>
-<tr>
-    <td rowspan="2">Abdominal circumference</td>
-    <td rowspan="2">Circonferenza dell'addome</td>
-    <td rowspan="28">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4245376" target="_blank">4245376</a></td>
-    <td rowspan="2">Abdominal circumference</td>
-    <td>Observable Entity</td>
-    <td>Measurement</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8582" target="_blank">8582</a></td>
-    <td>centimeter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">AST</td>
-    <td rowspan="2">Aspartate aminotransferase</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4263457" target="_blank">4263457</a></td>
-    <td>Aspartate aminotransferase measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8645" target="_blank">8645</a></td>
-    <td>Unit per Liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">ALT</td>
-    <td rowspan="2">Alanine aminotransferase</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4095055" target="_blank">4095055</a></td>
-    <td>Alanine aminotransferase - blood mesurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8645" target="_blank">8645</a></td>
-    <td>Unit per Liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">GGT</td>
-    <td rowspan="2">Gamma glutamyl transferase</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4289475" target="_blank">4289475</a></td>
-    <td>Gamma glutamyl transferase mesurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8645" target="_blank">8645</a></td>
-    <td>Unit per Liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">CREA</td>
-    <td rowspan="2">Creatinine</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4324383" target="_blank">4324383</a></td>
-    <td>Creatinine measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">8840</a></td>
-    <td>milligram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">eGFR (CKD-EPI)</td>
-    <td rowspan="2">Glomerular filtration rate </td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/44790183" target="_blank">44790183</a></td>
-    <td>Glomerular filtration rate test</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/720870" target="_blank">720870</a></td>
-    <td>millimiter per minute per 1.73 square meter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">PROT</td>
-    <td rowspan="2">Total protein </td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4119650" target="_blank">4119650</a></td>
-    <td>Total protein mesurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8713" target="_blank">8713</a></td>
-    <td>gram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">hb</td>
-    <td rowspan="2"> Hemoglobin</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/40480067" target="_blank">40480067</a></td>
-    <td>Measurement of total hemoglobin concentration</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8713" target="_blank">8713</a></td>
-    <td>gram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">Ferritin</td>
-    <td rowspan="2">Ferritina</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4176561" target="_blank">4176561</a></td>
-    <td>Ferritin measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8748" target="_blank">8748</a></td>
-    <td>microgram per liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">Gluc</td>
-    <td rowspan="2">Glucose</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4149519" target="_blank">4149519</a></td>
-    <td>Glucose measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">8840</a></td>
-    <td>milligram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">CHO</td>
-    <td rowspan="2">Total cholesterol</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4008265" target="_blank">4008265</a></td>
-    <td>Total cholesterol measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">8840</a></td>
-    <td>milligram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">HDL</td>
-    <td rowspan="2">High density lipoprotein</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4076704" target="_blank">4076704</a></td>
-    <td>High density lipoprotein mesurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">8840</a></td>
-    <td>milligram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">TRIG</td>
-    <td rowspan="2">Triglycerides</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4032789" target="_blank">4032789</a></td>
-    <td>Triglycerides mesurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">8840</a></td>
-    <td>milligram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">LDL-C</td>
-    <td rowspan="2">Low density lipoprotein</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4331302" target="_blank">4331302</a></td>
-    <td>Low density lipoprotein measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">8840</a></td>
-    <td>milligram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="3">Hyperchol</td>
-    <td rowspan="3">Ipercolesterolemia</td>
-    <td>yes</td>
-    <td>CONDITION</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4029305" target="_blank">4029305</a></td>
-    <td>Hypercholesterolemia</td>
-    <td>Disorder</td>
-    <td>Condition</td>
-    <td rowspan="4">SNOMED</td>
-    <td rowspan="8">Se "yes" reistro la condizione di ipercolesterolemia, se "no" ne registro l'assenza</td>
-</tr>
-<tr>
-    <td rowspan="7">no</td>
-    <td rowspan="2">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td>Observation</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4029305" target="_blank">4029305</a></td>
-    <td>Hypercholesterolemia</td>
-    <td>Disorder</td>
-    <td>Condition</td>
-</tr>
-<tr>
-    <td rowspan="2">HbA1c</td>
-    <td rowspan="2">Hemoglobin A1c</td>
-    <td rowspan="5">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4184637" target="_blank">4184637</a></td>
-    <td>Hemoglobin A1c measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/9579" target="_blank">9579</a></td>
-    <td>millimole per mole</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">Insulin</td>
-    <td rowspan="2">Insulina</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4060873" target="_blank">4060873</a></td>
-    <td>Insulin measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/44777578" target="_blank">44777578</a></td>
-    <td>milliunit per liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td>HOMA-IR</td>
-    <td>Homeostasis model</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/3049718" target="_blank">3049718</a></td>
-    <td>Homeostasis model measurement</td>
-    <td>Lab Test</td>
-    <td>Measurement</td>
-    <td>LOINC</td>
-</tr>
-<tr>
-    <td rowspan="3">Albuminuria +</td>
-    <td rowspan="3">Albuminuria</td>
-    <td>yes</td>
-    <td>CONDITION</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4168705" target="_blank">4168705</a></td>
-    <td rowspan="3">Albuminuria</td>
-    <td>Clinical Finding</td>
-    <td>Condition</td>
-    <td rowspan="7">SNOMED</td>
-    <td rowspan="3">Se "yes" registro la condizione di Albuminuria, se "no" ne registro l'assenza</td>
-</tr>
-<tr>
-    <td rowspan="2">no</td>
-    <td rowspan="2">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td>Observation</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4168705" target="_blank">4168705</a></td>
-    <td>Albuminuria</td>
-    <td>Clinical Finding</td>
-    <td rowspan="2">Condition</td>
-</tr>
-<tr>
-    <td rowspan="3">T2D</td>
-    <td rowspan="3">Diabetes Mellitus type 2</td>
-    <td>yes</td>
-    <td>CONDITION</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/201826" target="_blank">201826</a></td>
-    <td>Type 2 diabetes mellitus</td>
-    <td>Disorder</td>
-    <td rowspan="9">Se "yes" registro la condizione di Diabete Mellito di tipo 2, se "no" ne registro l'assenza</td>
-</tr>
-<tr>
-    <td rowspan="26">no</td>
-    <td rowspan="2">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td>Observation</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/201826" target="_blank">201826</a></td>
-    <td>Type 2 diabetes mellitus</td>
-    <td>Disorder</td>
-    <td>Condition</td>
-</tr>
-<tr>
-    <td rowspan="2">WBC</td>
-    <td rowspan="2">White Blood Cell</td>
-    <td rowspan="24">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4298431" target="_blank">4298431</a></td>
-    <td>White blood cell count</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/9444" target="_blank">9444</a></td>
-    <td>billion per liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">PLT</td>
-    <td rowspan="2">Platelet</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4267147" target="_blank">4267147</a></td>
-    <td>Platelet count</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/9444" target="_blank">9444</a></td>
-    <td>billion per liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">MCV</td>
-    <td rowspan="2">Mean Cell Volume</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/37393851" target="_blank">37393851</a></td>
-    <td>MCV - Mean corpuscular volume</td>
-    <td>Observable Entity</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8583" target="_blank">8583</a></td>
-    <td>femtoliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">FLI</td>
-    <td rowspan="2">Fatty Liver Index</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">4157120</a></td>
-    <td>Assessment scales</td>
-    <td rowspan="4">Staging / Scales</td>
-    <td rowspan="13">Measurement</td>
-    <td>SNOMED</td>
-    <td rowspan="6">Concetto custom mappato nel vocabolario MASLD</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000002" target="_blank">2000000002</a></td>
-    <td> Fatty Liver Index (FLI)</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">HSI</td>
-    <td rowspan="2">Hepatic Steatosis Index </td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">4157120</a></td>
-    <td>Assessment scales</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000003" target="_blank">2000000003</a></td>
-    <td>Hepatic steatosis index  (HSI)</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td>CAP</td>
-    <td>Controlled Attenuation Parameter,
-Misurato direttamente con il fibroscan, indice di steatosi  </td>
-    <td rowspan="3">measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/21494582" target="_blank">21494582</a></td>
-    <td>Liver ultrasound attenuation by transient elastography</td>
-    <td rowspan="2">Clinical Observation</td>
-    <td rowspan="2">LOINC</td>
-</tr>
-<tr>
-    <td>Stiffness</td>
-    <td>Stiffness</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/46236278" target="_blank">46236278</a></td>
-    <td>Liver stiffness by US.transient elastography</td>
-</tr>
-<tr>
-    <td rowspan="2">FAST score</td>
-    <td rowspan="2">FibroScan-aspartate aminotransferase,
-Basato su dati fibroscan e biochimica per identificare MASLD a rischio</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">4157120</a></td>
-    <td>Assessment scales</td>
-    <td rowspan="5">Staging / Scales</td>
-    <td>SNOMED</td>
-    <td rowspan="3">Concetto custom mappato nel vocabolario MASLD.</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000005" target="_blank">2000000005</a></td>
-    <td>FibroScan-aspartate aminotransferase (FAST)</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td>FIB-4</td>
-    <td>Fibrosis - 4, Score di fibrosi epatica</td>
-    <td rowspan="2">measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/36714577" target="_blank">36714577</a></td>
-    <td>Fibrosis - 4 index</td>
-    <td rowspan="2">SNOMED</td>
-</tr>
-<tr>
-    <td rowspan="2">FNI score</td>
-    <td rowspan="2">Fibrotic NASH Index</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">4157120</a></td>
-    <td>Assessment scales</td>
-    <td rowspan="9">Concetto custom mappato nel vocabolario MASLD</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000018" target="_blank">2000000018</a></td>
-    <td>Fibrotic NASH Index (FNI)</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="3">PROC3 (ng/ml)</td>
-    <td rowspan="3">Biomarker indicating active fibrogenesis</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4213656" target="_blank">4213656</a></td>
-    <td>Procollagen type III N-terminal propeptide level</td>
-    <td>Procedure</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000006" target="_blank">2000000006</a></td>
-    <td>Biomarker indicating active fibrogenesis (PROC3)</td>
-    <td>Staging / Scales</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8842" target="_blank">8842</a></td>
-    <td>nanogram per milliliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">ADAPT score</td>
-    <td rowspan="2">Score di fibrosi epatica</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">4157120</a></td>
-    <td>Assessment scales</td>
-    <td rowspan="2">Staging / Scales</td>
-    <td rowspan="4">Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000007" target="_blank">2000000007</a></td>
-    <td>ADAPT score</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">NASH score</td>
-    <td rowspan="2">Nonalcoholic statohepatitis score</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/1002455" target="_blank">1002455</a></td>
-    <td>Nonalcolholic steatohepatitis score in Serum or Plasma</td>
-    <td>Lab Test</td>
-    <td>LOINC</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000019" target="_blank">2000000019</a></td>
-    <td>Nonalcoholic steatohepatitis score</td>
-    <td>Staging / Scales</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">Smoke</td>
-    <td rowspan="2">Il paziente è un fumatore?</td>
-    <td>yes</td>
-    <td rowspan="2">OBSERVATION</td>
-    <td rowspan="2">observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/903654" target="_blank">903654</a></td>
-    <td>Tobacco or its derivatives user</td>
-    <td rowspan="2">Clinical Finding</td>
-    <td rowspan="2">Observation</td>
-    <td rowspan="2">OMOP Extension</td>
-    <td rowspan="2">Se "yes" il paziente è un fumatore e lo registro, se "no" registro l'assenza di utilizzo di tabacco</td>
-</tr>
-<tr>
-    <td rowspan="5">no</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/903651" target="_blank">903651</a></td>
-    <td>Currently doesn't use tobacco or its derivatives</td>
-</tr>
-<tr>
-    <td rowspan="2">Rischio Cuore</td>
-    <td rowspan="2">Calcolo del rischio cardiovascolare a 10 anni secondo la carte del rischio ISS italiana </td>
-    <td rowspan="4">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4201940" target="_blank">4201940</a></td>
-    <td>Coronary heart disease risk</td>
-    <td rowspan="4">Staging / Scales</td>
-    <td rowspan="4">Measurement</td>
-    <td>SNOMED</td>
-    <td rowspan="22">Concetto custom mappato nel vocabolario MASLD</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000020" target="_blank">2000000020</a></td>
-    <td>Cardiovascular Risk</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">SCORE2 ESC</td>
-    <td rowspan="2">Systematic Coronary Risk Evaluation 2, Calcolo del rischio cardiovascolare a 10 secondo le carte del rischio Europee</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4201940" target="_blank">4201940</a></td>
-    <td>Coronary heart disease risk</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000008" target="_blank">2000000008</a></td>
-    <td>Systematic Coronary Risk Evaluation 2</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="6">SCORE2 ESC categorie</td>
-    <td rowspan="6"> Systematic Coronary Risk Evaluation 2 - category observation</td>
-    <td rowspan="2">High</td>
-    <td rowspan="6">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4058854" target="_blank">4058854</a></td>
-    <td>At high risk for heart disease</td>
-    <td>Clinical Finding</td>
-    <td rowspan="6">Observation</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>observation_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000010" target="_blank">2000000010</a></td>
-    <td>Systematic Coronary Risk Evaluation 2 - High</td>
-    <td>Staging / Scales</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">Low</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4215254" target="_blank">4215254</a></td>
-    <td>At low risk form primary heart dsease</td>
-    <td>Clinical Finding</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>observation_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000009" target="_blank">2000000009</a></td>
-    <td>Systematic Coronary Risk Evaluation 2 - Low</td>
-    <td>Staging / Scales</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="14">Very high</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4058854" target="_blank">4058854</a></td>
-    <td>At high risk for heart disease</td>
-    <td>Clinical Finding</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>observation_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000011" target="_blank">2000000011</a></td>
-    <td>Systematic Coronary Risk Evaluation 2 - Very High</td>
-    <td>Staging / Scales</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">CRP</td>
-    <td rowspan="2">C - reactive protein</td>
-    <td rowspan="12">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4208414" target="_blank">4208414</a></td>
-    <td>C - reactive protein measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">8840</a></td>
-    <td>milligram per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">TSH</td>
-    <td rowspan="2">Thyroid stimulating hormone</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4246879" target="_blank">4246879</a></td>
-    <td>Thyroid stimulating hormone measurement</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/44777578" target="_blank">44777578</a></td>
-    <td>milliunit per liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">FVIII</td>
-    <td rowspan="2">Factor VIII</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4148587" target="_blank">4148587</a></td>
-    <td>Factor VIII assay</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/44777568" target="_blank">44777568</a></td>
-    <td>unit per deciliter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">PC</td>
-    <td rowspan="2">Protein C</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4168929" target="_blank">4168929</a></td>
-    <td>Protein C, assay</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8554" target="_blank">8554</a></td>
-    <td>percent</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">vWF-AG</td>
-    <td rowspan="2">von Willebrand factor antigen</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4252203" target="_blank">4252203</a></td>
-    <td>von Williebrand factor antigen level</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/44777568" target="_blank">44777568</a></td>
-    <td>Unit per Liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="2">Ddimer</td>
-    <td rowspan="2">D - dimer</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4322628" target="_blank">4322628</a></td>
-    <td>D - dimer assay</td>
-    <td>Procedure</td>
-    <td>Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>unit_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/8748" target="_blank">8748</a></td>
-    <td>microgram per liter</td>
-    <td>Unit</td>
-    <td>Unit</td>
-    <td>UCUM</td>
-</tr>
-<tr>
-    <td rowspan="5">MDS>7</td>
-    <td rowspan="5">Osservo se il paziente ha uno Score di Dieta Mediterranea maggiore di 7</td>
-    <td rowspan="2">yes</td>
-    <td rowspan="9">OBSERVATION</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4270273" target="_blank">4270273</a></td>
-    <td>Nutritional observable</td>
-    <td>Observable Entity</td>
-    <td rowspan="9">Observation</td>
-    <td>SNOMED</td>
-    <td rowspan="9">Se "yes" registro la dieta, se "no" ne registro l'assenza</td>
-</tr>
-<tr>
-    <td>observation_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000012" target="_blank">2000000012</a></td>
-    <td>Mediterranean Dietary Serving Score</td>
-    <td>Clinical Finding</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="3">no</td>
-    <td>observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">4189457</a></td>
-    <td>Clinical finding absent</td>
-    <td>Context-dependent</td>
-    <td rowspan="2">SNOMED</td>
-</tr>
-<tr>
-    <td>value_as_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4270273" target="_blank">4270273</a></td>
-    <td>Nutritional observable</td>
-    <td>Observable Entity</td>
-</tr>
-<tr>
-    <td>observation_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000012" target="_blank">2000000012</a></td>
-    <td>Mediterranean Dietary Serving Score</td>
-    <td rowspan="5">Clinical Finding</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="4">ABO imputation</td>
-    <td rowspan="4">Osservazione del gruppo sanguigno</td>
-    <td>A</td>
-    <td rowspan="4">observation_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4008253" target="_blank">4008253</a></td>
-    <td>Blood Group A</td>
-    <td rowspan="5">SNOMED</td>
-</tr>
-<tr>
-    <td>B</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4009006" target="_blank">4009006</a></td>
-    <td>Blood Group B</td>
-</tr>
-<tr>
-    <td>AB</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4013993" target="_blank">4013993</a></td>
-    <td>Blood Group AB</td>
-</tr>
-<tr>
-    <td>0</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4237761" target="_blank">4237761</a></td>
-    <td>Blood Group 0</td>
-</tr>
-<tr>
-    <td rowspan="6">Predicted NAFLD subtype</td>
-    <td rowspan="6">Subtype of Non-alcoholic fatty liver, 
-score metabolico di tipo MASLD</td>
-    <td rowspan="2">A</td>
-    <td rowspan="6">CONDITION</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/37164766" target="_blank">37164766</a></td>
-    <td>Non - alcoholic fatty liver disease</td>
-    <td rowspan="6">Disorder</td>
-    <td rowspan="6">Condition</td>
-    <td rowspan="18">Concetto custom mappato nel vocabolario MASLD</td>
-</tr>
-<tr>
-    <td>condition_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000013" target="_blank">2000000013</a></td>
-    <td>NAFLD subtype A</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">B</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/37164766" target="_blank">37164766</a></td>
-    <td>Non - alcoholic fatty liver disease</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>condition_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000014" target="_blank">2000000014</a></td>
-    <td>NAFLD subtype B</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="6">C</td>
-    <td>condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/37164766" target="_blank">37164766</a></td>
-    <td>Non - alcoholic fatty liver disease</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>condition_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000015" target="_blank">2000000015</a></td>
-    <td>NAFLD subtype C</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">MetS_score (positive above 1.106)</td>
-    <td rowspan="2">Metabolic syndrome severity score, 
-score di sindrome metabolica basato su spettroscopia NMR lipidi circolanti</td>
-    <td rowspan="4">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">4157120</a></td>
-    <td>Assessment scales</td>
-    <td rowspan="2">Staging / Scales</td>
-    <td rowspan="4">Measurement</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000016" target="_blank">2000000016</a></td>
-    <td>Metabolic syndrome severity score</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="2">PRS_F8</td>
-    <td rowspan="2">Polygenic risk score, 
-score poligenico di predizione livelli di FVIII</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/3966663" target="_blank">3966663</a></td>
-    <td>Polygenic risk score (PRS)</td>
-    <td>Clinical Observation</td>
-    <td>SNOMED</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000021" target="_blank">2000000021</a></td>
-    <td>Polygenic risk score Factor VIII</td>
-    <td>Staging / Scales</td>
-    <td>MASLD</td>
-</tr>
-<tr>
-    <td rowspan="6">CKD stage</td>
-    <td rowspan="6">Chronic kidney disease stage</td>
-    <td>1</td>
-    <td rowspan="6">CONDITION</td>
-    <td rowspan="6">condition_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/443614" target="_blank">443614</a></td>
-    <td>Chronic kidney disease stage 1</td>
-    <td rowspan="6">Disorder</td>
-    <td rowspan="6">Condition</td>
-    <td rowspan="7">SNOMED</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/443601" target="_blank">443601</a></td>
-    <td>Chronic kidney disease stage 2</td>
-</tr>
-<tr>
-    <td>3A</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/45763854" target="_blank">45763854</a></td>
-    <td>Chronic kidney disease stage 3A</td>
-</tr>
-<tr>
-    <td>3B</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/45763855" target="_blank">45763855</a></td>
-    <td>Chronic kidney disease stage 3B</td>
-</tr>
-<tr>
-    <td>4</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/443612" target="_blank">443612</a></td>
-    <td>Chronic kidney disease stage 4</td>
-</tr>
-<tr>
-    <td rowspan="3">5</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/443611" target="_blank">443611</a></td>
-    <td>Chronic kidney disease stage 5</td>
-</tr>
-<tr>
-    <td rowspan="2">CKD PRS Score</td>
-    <td rowspan="2">Chronic kidney disease score, 
-score poligenico di predizione di rischio malattia renale</td>
-    <td rowspan="2">MEASUREMENT</td>
-    <td>measurement_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/3966663" target="_blank">3966663</a></td>
-    <td>Polygenic risk score (PRS)</td>
-    <td>Clinical Observation</td>
-    <td rowspan="2">Measurement</td>
-</tr>
-<tr>
-    <td>measurement_source_concept_id</td>
-    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000017" target="_blank">2000000017</a></td>
-    <td>Chronic kidney disease Polygenic risk score</td>
-    <td>Staging / Scales</td>
-    <td>MASLD</td>
-</tr>
-</table>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMOP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+		<img src="logo.png" width="130">
+        <h1>Guida per il mappaggio in OMOP</h1>
+    </header>
 
-            </section>
-        </main>
-    </body>
-    </html>
+    <main>
+        <section>
+            <h2>Variabili mappate</h2>
+            <table>
+                <thead>
+				    <tr>
+                        <th colspan="3">Field</th>
+                        <th colspan="8">OMOP mapping</th>
+                    </tr>
+                    <tr>
+                        <th>Variable name</th>
+                        <th>Variable description</th>
+                        <th>Choises</th>
+                        <th>Domain</th>
+                        <th>Field</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Domain</th>
+                        <th>Vocabulary</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GWAS_Code</td>
+                        <td>Id paziente</td>
+                        <td></td>
+                        <td>PERSON</td>
+                        <td>person_id</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+					
+                    <tr>
+						<td rowspan="4">Data nascita</td> <!-- Cella unita nella colonna 1 -->
+						<td rowspan="4">Date of birth: DD/MM/YYYY</td>
+						<td rowspan="4"></td>
+						<td>PERSON</td>
+						<td>year_of_birth</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>PERSON</td>
+						<td>month_of_birth</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Terza riga -->
+					<tr>
+						<td>PERSON</td>
+						<td>day_of_birth</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Quarta riga -->
+					<tr>
+						<td>PERSON</td>
+						<td>birth_datetime</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					
+                    <tr>
+						<td rowspan="2">SEX</td> 
+						<td rowspan="2">Sex</td>
+						<td>M</td>
+						<td>PERSON</td>
+						<td>gender_concept_id</td>
+						<td>8507</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8507" target="_blank">MALE</a></td>
+						<td>Gender</td>
+						<td>Gender</td>
+						<td>Gender</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>F</td>
+						<td>PERSON</td>
+						<td>gender_concept_id</td>
+						<td>8532</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8532" target="_blank">FEMALE</a></td>
+						<td>Gender</td>
+						<td>Gender</td>
+						<td>Gender</td>
+						<td></td>
+					</tr>
+					
+                    <tr>
+						<td rowspan="8">Ethnicity of BIBLE_17may2023.jmp</td> 
+						<td rowspan="8">Ethnicity</td>
+						<td>Caucasian</td>
+						<td>PERSON</td>
+						<td>race_concept_id</td>
+						<td>8527</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8527" target="_blank">White</a></td>
+						<td>Race</td>
+						<td>Race</td>
+						<td>Race</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>Asian</td>
+						<td>PERSON</td>
+						<td>race_concept_id</td>
+						<td>8515</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8515" target="_blank">Asian</a></td>
+						<td>Race</td>
+						<td>Race</td>
+						<td>Race</td>
+						<td></td>
+					</tr>
+					<!-- Terza riga -->
+					<tr>
+						<td>North African</td>
+						<td>PERSON</td>
+						<td>race_concept_id</td>
+						<td>38003600</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/38003600" target="_blank">African</a></td>
+						<td>Race</td>
+						<td>Race</td>
+						<td>Race</td>
+						<td></td>
+					</tr>
+					<!-- Quarta riga -->
+					<tr>
+						<td>South American</td>
+						<td>PERSON</td>
+						<td>race_concept_id</td>
+						<td>0</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>	
+					<!-- Quinta riga -->
+					<tr>
+						<td>Caucasian</td>
+						<td>PERSON</td>
+						<td>ethnicity_concept_id</td>
+						<td>0</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Sesta riga -->
+					<tr>
+						<td>Asian</td>
+						<td>PERSON</td>
+						<td>ethnicity_concept_id</td>
+						<td>0</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Settima riga -->
+					<tr>
+						<td>North African</td>
+						<td>PERSON</td>
+						<td>ethnicity_concept_id</td>
+						<td>0</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Ottava riga -->
+					<tr>
+						<td>South American</td>
+						<td>PERSON</td>
+						<td>ethnicity_concept_id</td>
+						<td>38003563</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/38003563" target="_blank">Hispanic or Latino</a></td>
+						<td>Ethnicity</td>
+						<td>Ethnicity</td>
+						<td>Ethnicity</td>
+						<td></td>
+					</tr>
+					
+                    <tr>
+						<td rowspan="2">DTPRES metabolic screening</td> 
+						<td rowspan="2">Data visita</td>
+						<td></td>
+						<td>VISIT</td>
+						<td>visit_concept_id</td>
+						<td>9202</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/9202" target="_blank">Outpatient Visit</a></td>
+						<td>Visit</td>
+						<td>Visit</td>
+						<td>Visit</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td></td>
+						<td>VISIT</td>
+						<td>visit_start_date</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>					
+
+                    <tr>
+						<td rowspan="2">BMI_metabolic screening</td> 
+						<td rowspan="2">Body Mass Index</td>
+						<td></td>
+						<td>MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4245997</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4245997" target="_blank">Body Mass Index</a></td>
+						<td>Observable Entity</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td></td>
+						<td>MEASUREMENT</td>
+						<td>unit_concept_id</td>
+						<td>9531</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/9531" target="_blank">kilogram per square meter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>		
+					
+                    <tr>
+						<td rowspan="3">Obesity</td>
+						<td rowspan="3"></td>
+						<td>Yes</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>433736</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/433736" target="_blank">Obesity</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>No</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td> 
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">Clinical finding absent</a></td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Terza riga -->
+					<tr>
+						<td>No</td>
+						<td>OBSERVATION</td>
+						<td>value_as_concept_id</td> 
+						<td>433736</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/433736" target="_blank">Obesity</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					
+                    <tr>
+						<td rowspan="2">Peso</td>
+						<td rowspan="2">Body Weight</td>
+						<td rowspan="2"></td>
+						<td>MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4099154</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4099154" target="_blank">Body Weight</a></td>
+						<td>Observable Entity</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>MEASUREMENT</td>
+						<td>unit_concept_id</td>
+						<td>9529</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/9529" target="_blank">kilogram</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					
+                    <tr>
+						<td rowspan="2">Altezza</td>
+						<td rowspan="2">Body Height</td>
+						<td rowspan="2"></td>
+						<td>MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>607590</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/607590" target="_blank">Body Height</a></td>
+						<td>Observable Entity</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>MEASUREMENT</td>
+						<td>unit_concept_id</td>
+						<td>8582</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8582" target="_blank">centimeter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					
+                    <tr>
+						<td rowspan="2">PAMAX</td>
+						<td rowspan="2">Systolic blood pressure</td>
+						<td rowspan="2"></td>
+						<td>MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4152194</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4152194" target="_blank">Systolic Blood Pressure</a></td>
+						<td>Observable Entity</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>MEASUREMENT</td>
+						<td>unit_concept_id</td>
+						<td>8876</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8876" target="_blank">millimeter mercury column</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>		
+
+                    <tr>
+						<td rowspan="2">PAMIN</td>
+						<td rowspan="2">Diastolic blood pressure</td>
+						<td rowspan="2"></td>
+						<td>MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4154790</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4154790" target="_blank">Diastolic Blood Pressure</a></td>
+						<td>Observable Entity</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<!-- Seconda riga -->
+					<tr>
+						<td>MEASUREMENT</td>
+						<td>unit_concept_id</td>
+						<td>8876</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8876" target="_blank">millimeter mercury column</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+                    <tr>
+						<td rowspan="4">Anti-ipertensivi YES/no</td> 
+						<td rowspan="4">Il paziente assume farmaci Anti-Ipertensivi?</td> 
+						<td rowspan="2">Yes</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4202797</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">Drug Therapy Finding</td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>value_as_concept_id</td>
+						<td>4146455</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4146455" target="_blank">Antyhypertensive therapy</td>
+						<td>Procedure</td>
+						<td>Procedure</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>					
+                    <tr>
+						<td rowspan="2">No</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">Clinical finding absent</td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>value_as_concept_id</td>
+						<td>4146455</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4146455" target="_blank">Antyhypertensive therapy</td>
+						<td>Procedure</td>
+						<td>Procedure</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					
+                    <tr>
+						<td rowspan="4">Ipolipemiz YES/no</td> 
+						<td rowspan="4">Il paziente assume farmaci Ipolipemizzanti?</td> 
+						<td rowspan="2">Yes</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4202797</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">Drug Therapy Finding</td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>value_as_concept_id</td>
+						<td>4047080</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4047080" target="_blank">Lipid-lowering therapy</td>
+						<td>Procedure</td>
+						<td>Procedure</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>					
+                    <tr>
+						<td rowspan="2">No</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">Clinical finding absent</td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>value_as_concept_id</td>
+						<td>4047080</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4047080" target="_blank">Lipid-lowering therapy</td>
+						<td>Procedure</td>
+						<td>Procedure</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>		
+
+                    <tr>
+						<td rowspan="4">Ipoglcemiz YES/no</td> 
+						<td rowspan="4">Il paziente assume farmaci Ipoglicemizzanti?</td> 
+						<td rowspan="2">Yes</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4202797</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">Drug Therapy Finding</td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>value_as_concept_id</td>
+						<td>3655577</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/3655577" target="_blank">Antidiabetic drug therapy observation</td>
+						<td>Observable Entity</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>					
+                    <tr>
+						<td rowspan="2">No</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4202797" target="_blank">Clinical finding absent</td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>value_as_concept_id</td>
+						<td>3655577</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/3655577" target="_blank">Antidiabetic drug therapy observation</td>
+						<td>Observable Entity</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="3">Hypertension</td>
+						<td rowspan="3">Ipertensione</td>
+						<td>yes</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>316866</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/316866" target="_blank">Hypertensive disorder</td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">no</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">Clinical finding absent</td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+						<td>OBSERVATION</td>
+						<td>value_as_concept_id</td>
+						<td>316866</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/316866" target="_blank">Hypertensive disorder</td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>	
+
+					<tr>
+						<td rowspan="2">Abdominal circumference</td>
+						<td rowspan="2">Circonferenza dell'addome</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4245376</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4245376" target="_blank">Abdominal circumference</td>
+						<td>Observable Entity</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8582</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8582" target="_blank">centimeter</td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">AST</td>
+						<td rowspan="2">Aspartate aminotransferase</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4263457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4263457" target="_blank">Aspartate aminotransferase measurement</td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8645</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8645" target="_blank">Unit per Liter</td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>	
+
+					<tr>
+						<td rowspan="2">ALT</td>
+						<td rowspan="2">Alanine aminotransferase</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4095055</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4095055" target="_blank">Alanine aminotransferase - blood mesurement</td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					  </tr>
+					  <tr>
+						<td>unit_concept_id</td>
+						<td>8645</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8645" target="_blank">Unit per Liter</td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					  </tr>		
+
+					<tr>
+						<td rowspan="2">GGT</td>
+						<td rowspan="2">Gamma glutamyl transferase</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4289475</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4289475" target="_blank">Gamma glutamyl transferase mesurement</td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8645</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8645" target="_blank">Unit per Liter</td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>	
+
+					<tr>
+						<td rowspan="2">CREA</td>
+						<td rowspan="2">Creatinine</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4324383</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4324383" target="_blank">Creatinine measurement</td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8840</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">milligram per deciliter</td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>	
+
+					<tr>
+						<td rowspan="2">eGFR (CKD-EPI)</td>
+						<td rowspan="2">Glomerular filtration rate</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>44790183</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/44790183" target="_blank">Glomerular filtration rate test</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>720870</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/720870" target="_blank">milliliter per minute per 1.73 square meter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">PROT</td>
+						<td rowspan="2">Total protein</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4119650</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4119650" target="_blank">Total protein measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8713</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8713" target="_blank">gram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>			
+
+					<tr>
+						<td rowspan="2">hb</td>
+						<td rowspan="2">Hemoglobin</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>40480067</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/40480067" target="_blank">Measurement of total hemoglobin concentration</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8713</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8713" target="_blank">gram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>			
+
+					<tr>
+						<td rowspan="2">Ferritin</td>
+						<td rowspan="2">Ferritina</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4176561</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4176561" target="_blank">Ferritin measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8748</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8748" target="_blank">microgram per liter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>	
+
+					<tr>
+						<td rowspan="2">Gluc</td>
+						<td rowspan="2">Glucose</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4149519</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4149519" target="_blank">Glucose measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8840</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">milligram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">CHO</td>
+						<td rowspan="2">Total cholesterol</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4008265</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4008265" target="_blank">Total cholesterol measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8840</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">milligram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">HDL</td>
+						<td rowspan="2">High density lipoprotein</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4076704</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4076704" target="_blank">High density lipoprotein measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8840</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">milligram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">TRIG</td>
+						<td rowspan="2">Triglycerides</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4032789</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4032789" target="_blank">Triglycerides measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8840</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">milligram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">LDL-C</td>
+						<td rowspan="2">Low density lipoprotein</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4331302</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4331302" target="_blank">Low density lipoprotein measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8840</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">milligram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>			
+
+					<tr>
+						<td rowspan="3">Hyperchol</td>
+						<td rowspan="3">Ipercolesterolemia</td>
+						<td>Yes</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>4029305</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4029305" target="_blank">Hypercholesterolemia</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">No</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">Clinical finding absent</a></td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>	
+					<tr>
+						<td>OBSERVATION</td>
+						<td>value_as_concept_id</td>
+						<td>4029305</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4029305" target="_blank">Hypercholesterolemia</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">HbA1c</td>
+						<td rowspan="2">Hemoglobin A1c</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4184637</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4184637" target="_blank">Hemoglobin A1c measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>9579</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/9579" target="_blank">millimole per mole</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td rowspan="2">Insulin</td>
+						<td rowspan="2">Insulina</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4060873</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4060873" target="_blank">Insulin measurement</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>44777578</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/44777578" target="_blank">milliunit per liter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td>HOMA-IR</td>
+						<td>Homeostasis model</td>
+						<td></td>
+						<td>MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>3049718</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/3049718" target="_blank">Homeostasis model measurement</a></td>
+						<td>Lab Test</td>
+						<td>Measurement</td>
+						<td>LOINC</td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td rowspan="3">Albuminuria +</td>
+						<td rowspan="3">Albuminuria</td>
+						<td>Yes</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>4168705</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4168705" target="_blank">Albuminuria</a></td>
+						<td>Clinical Finding</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">No</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">Clinical finding absent</a></td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>	
+					<tr>
+						<td>OBSERVATION</td>
+						<td>value_as_concept_id</td>
+						<td>4168705</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4168705" target="_blank">Albuminuria</a></td>
+						<td>Clinical Finding</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td rowspan="3">T2D</td>
+						<td rowspan="3">Diabetes Mellitus type 2</td>
+						<td>Yes</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>201826</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4168705" target="_blank">Type 2 diabetes mellitus</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">No</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">Clinical finding absent</a></td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>	
+					<tr>
+						<td>OBSERVATION</td>
+						<td>value_as_concept_id</td>
+						<td>201826</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4168705" target="_blank">Type 2 diabetes mellitus</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">WBC</td>
+						<td rowspan="2">White Blood Cell</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4298431</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4298431" target="_blank">White blood cell count</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>9444</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/9444" target="_blank">billion per liter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td rowspan="2">PLT</td>
+						<td rowspan="2">Platelet</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4267147</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4267147" target="_blank">Platelet count</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>9444</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/9444" target="_blank">billion per liter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>			
+
+					<tr>
+						<td rowspan="2">MCV</td>
+						<td rowspan="2">Mean Cell Volume</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>37393851</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/37393851" target="_blank">MCV - Mean corpuscular volume</a></td>
+						<td>Observable Entity</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8583</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8583" target="_blank">femtoliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>		
+
+					<tr>
+					    <td rowspan="2">FLI</td>
+					    <td rowspan="2">Fatty Liver Index</td>
+					    <td rowspan="2"></td>
+					    <td rowspan="2">MEASUREMENT</td>
+					    <td>measurement_concept_id</td>
+					    <td>4157120</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">Assessment scales</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>SNOMED</td>
+					    <td></td>
+					</tr>
+					<tr>
+					    <td>measurement_source_concept_id</td>
+					    <td>2000000002</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000002" target="_blank">Fatty Liver Index (FLI)</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>MASLD</td>
+					    <td></td>
+					</tr>
+
+					<tr>
+					    <td rowspan="2">HSI</td>
+					    <td rowspan="2">Hepatic Steatosis Index</td>
+					    <td rowspan="2"></td>
+					    <td rowspan="2">MEASUREMENT</td>
+					    <td>measurement_concept_id</td>
+					    <td>4157120</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">Assessment scales</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>SNOMED</td>
+					    <td></td>
+					</tr>
+					<tr>
+					    <td>measurement_source_concept_id</td>
+					    <td>2000000003</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/2000000003" target="_blank">Hepatic steatosis index (HSI)</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>MASLD</td>
+					    <td></td>
+					</tr>
+
+					<tr>
+					    <td>CAP</td>
+					    <td>Controlled Attenuation Parameter, Misurato direttamente con il fibroscan, indice di steatosi</td>
+					    <td></td>
+					    <td>MEASUREMENT</td>
+					    <td>measurement_concept_id</td>
+					    <td>21494582</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/21494582" target="_blank">Liver ultrasound attenuation by transient elastography</a></td>
+					    <td>Clinical Observation</td>
+					    <td>Measurement</td>
+					    <td>LOINC</td>
+					    <td></td>
+					</tr>
+
+					<tr>
+					    <td>Stiffness</td>
+				    	<td>Stiffness</td>
+				    	<td></td>
+					    <td>MEASUREMENT</td>
+					    <td>measurement_concept_id</td>
+					    <td>46236278</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/46236278" target="_blank">Liver stiffness by US.transient elastography</a></td>
+					    <td>Clinical Observation</td>
+					    <td>Measurement</td>
+					    <td>LOINC</td>
+					    <td></td>
+					</tr>
+
+					<tr>
+					    <td rowspan="2">FAST score</td>
+					    <td rowspan="2">FibroScan-aspartate aminotransferase, Basato su dati fibroscan e biochimica per identificare MASLD a rischio</td>
+					    <td rowspan="2"></td>
+					    <td rowspan="2">MEASUREMENT</td>
+					    <td>measurement_concept_id</td>
+					    <td>4157120</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">Assessment scales</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>SNOMED</td>
+					    <td></td>
+					</tr>
+					<tr>
+					    <td>measurement_source_concept_id</td>
+					    <td>2000000005</td>
+					    <td>FibroScan-aspartate aminotransferase (FAST)</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>MASLD</td>
+					    <td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+					    <td>FIB-4</td>
+					    <td>Fibrosis - 4, Score di fibrosi epatica</td>
+					    <td></td>
+					    <td>MEASUREMENT</td>
+					    <td>measurement_concept_id</td>
+					    <td>36714577</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/36714577" target="_blank">Fibrosis - 4 index</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>SNOMED</td>
+					    <td></td>
+					</tr>
+
+					<tr>
+					    <td rowspan="2">FNI score</td>
+					    <td rowspan="2">Fibrotic NASH Index</td>
+					    <td rowspan="2"></td>
+					    <td rowspan="2">MEASUREMENT</td>
+					    <td>measurement_concept_id</td>
+					    <td>4157120</td>
+					    <td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">Assessment scales</a></td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>SNOMED</td>
+					    <td></td>
+					</tr>
+					<tr>
+					    <td>measurement_source_concept_id</td>
+					    <td>2000000018</td>
+					    <td>Fibrotic NASH Index (FNI)</td>
+					    <td>Staging / Scales</td>
+					    <td>Measurement</td>
+					    <td>MASLD</td>
+					    <td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+					
+					<tr>
+						<td rowspan="3">PROC3 (ng/ml)</td>
+						<td rowspan="3">Biomarker indicating active fibrogenesis</td>
+						<td rowspan="3"></td>
+						<td rowspan="3">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4213656</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4213656" target="_blank">Procollagen type III N-terminal propeptide level</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000006</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/2000000006" target="_blank">Biomarker indicating active fibrogenesis (PROC3)</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8842</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8842" target="_blank">nanogram per milliliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">ADAPT score</td>
+						<td rowspan="2">Score di fibrosi epatica</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4157120</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">Assessment scales</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000007</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/2000000007" target="_blank">ADAPT score</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">NASH score</td>
+						<td rowspan="2">Nonalcoholic statohepatitis score</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>1002455</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/1002455" target="_blank">Nonalcolholic steatohepatitis score in Serum or Plasma</a></td>
+						<td>Lab Test</td>
+						<td>Measurement</td>
+						<td>LOINC</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000019</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/2000000019" target="_blank">Nonalcoholic steatohepatitis score</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">Smoke</td>
+						<td rowspan="2">Il paziente è un fumatore?</td>
+						<td>Yes</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>903654</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/903654" target="_blank">Tobacco or its derivatives user</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>OMOP Extension</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>No</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>903651</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/903651" target="_blank">Currently doesn't use tobacco or its derivatives</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>OMOP Extension</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">Rischio Cuore</td>
+						<td rowspan="2">Calcolo del rischio cardiovascolare a 10 anni secondo la carte del rischio ISS italiana</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4201940</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4201940" target="_blank">Coronary heart disease risk</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000020</td>
+						<td>Cardiovascular Risk</td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">SCORE2 ESC</td>
+						<td rowspan="2">Systematic Coronary Risk Evaluation 2, Calcolo del rischio cardiovascolare a 10 secondo le carte del rischio Europee</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4194408</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4194408" target="_blank">At increased risk for cardiovascular event</a></td>
+						<td>Clinical Finding</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000008</td>
+						<td>Systematic Coronary Risk Evaluation 2</td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="6">SCORE2 ESC categorie</td>
+						<td rowspan="6"> Systematic Coronary Risk Evaluation 2 - category observation</td>
+						<td rowspan="2">High</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4058854</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4058854" target="_blank">At high risk for heart disease</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>observation_source_concept_id</td>
+						<td>2000000010</td>
+						<td>Systematic Coronary Risk Evaluation 2 - High</td>
+						<td>Staging / Scales</td>
+						<td>Observation</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">Low</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4215254</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4215254" target="_blank">At low risk for primary heart disease</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>observation_source_concept_id</td>
+						<td>2000000009</td>
+						<td>Systematic Coronary Risk Evaluation 2 - Low</td>
+						<td>Staging / Scales</td>
+						<td>Observation</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">Very High</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4058854</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4058854" target="_blank">At very high risk for heart disease</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>observation_source_concept_id</td>
+						<td>2000000011</td>
+						<td>Systematic Coronary Risk Evaluation 2 - Very High</td>
+						<td>Staging / Scales</td>
+						<td>Observation</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">CRP</td>
+						<td rowspan="2">C-reactive protein measurement</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4208414</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4208414" target="_blank">C-reactive protein level</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8840</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8840" target="_blank">milligram per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">TSH</td>
+						<td rowspan="2">Thyroid Stimulating Hormone</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4246879</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4246879" target="_blank">Thyroid stimulating hormone level</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>44777578</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/44777578" target="_blank">milliunit per liter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">FVIII</td>
+						<td rowspan="2">Factor VIII Assay</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4148587</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4148587" target="_blank">Factor VIII level</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>44777568</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/44777568" target="_blank">unit per deciliter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">PC</td>
+						<td rowspan="2">Protein C</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4168929</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4168929" target="_blank">Protein C, assay</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8554</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8554" target="_blank">percent</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">vWF-AG</td>
+						<td rowspan="2">von Willebrand factor antigen</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4252203</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4252203" target="_blank">von Willebrand factor antigen level</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>44777568</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/44777568" target="_blank">Unit per Liter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">Ddimer</td>
+						<td rowspan="2">D - dimer</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4322628</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4322628" target="_blank">D - dimer assay</a></td>
+						<td>Procedure</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>unit_concept_id</td>
+						<td>8748</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/8748" target="_blank">microgram per liter</a></td>
+						<td>Unit</td>
+						<td>Unit</td>
+						<td>UCUM</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="5">MDS>7</td>
+						<td rowspan="5">Osservo se il paziente ha uno Score di Dieta Mediterranea maggiore di 7</td>
+						<td rowspan="2">Yes</td>
+						<td rowspan="2">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4270273</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4270273" target="_blank">Nutritional observable</a></td>
+						<td>Observable Entity</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>observation_source_concept_id</td>
+						<td>2000000012</td>
+						<td>Mediterranean Dietary Serving Score</td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="3">No</td>
+						<td rowspan="3">OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4189457</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4189457" target="_blank">Clinical finding absent</a></td>
+						<td>Context-dependent</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>value_as_concept_id</td>
+						<td>4270273</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4270273" target="_blank">Nutritional observable</a></td>
+						<td>Observable Entity</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>observation_source_concept_id</td>
+						<td>2000000012</td>
+						<td>Mediterranean Dietary Serving Score</td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+					
+					<tr>
+						<td rowspan="4">ABO imputation</td>
+						<td rowspan="4">Osservazione del gruppo sanguigno</td>
+						<td>A</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4008253</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4008253" target="_blank">Blood Group A</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>B</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4009006</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4009006" target="_blank">Blood Group B</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>AB</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4013993</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4013993" target="_blank">Blood Group AB</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>0</td>
+						<td>OBSERVATION</td>
+						<td>observation_concept_id</td>
+						<td>4237761</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4237761" target="_blank">Blood Group 0</a></td>
+						<td>Clinical Finding</td>
+						<td>Observation</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="6">Predicted NAFLD subtype</td>
+						<td rowspan="6">Subtype of Non-alcoholic fatty liver, score metabolico di tipo MASLD</td>
+						<td rowspan="2">A</td>
+						<td rowspan="2">CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>37164766</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/37164766" target="_blank">Non-alcoholic fatty liver disease</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>condition_source_concept_id</td>
+						<td>2000000013</td>
+						<td>NAFLD subtype A</td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+					<tr>
+						<td rowspan="2">B</td>
+						<td rowspan="2">CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>37164766</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/37164767" target="_blank">Non-alcoholic fatty liver disease</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>condition_source_concept_id</td>
+						<td>2000000014</td>
+						<td>NAFLD subtype B</td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+					<tr>
+						<td rowspan="2">C</td>
+						<td rowspan="2">CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>37164766</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/37164768" target="_blank">Non-alcoholic fatty liver disease</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>condition_source_concept_id</td>
+						<td>2000000015</td>
+						<td>NAFLD subtype C</td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+					
+					<tr>
+						<td rowspan="2">MetS_score (positive above 1.106)</td>
+						<td rowspan="2">Metabolic syndrome severity score, score di sindrome metabolica basato su spettroscopia NMR lipidi circolanti</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>4157120</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/4157120" target="_blank">Assessment scales</a></td>	
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000016</td>
+						<td>Metabolic syndrome severity score</td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">PRS_F8</td>
+						<td rowspan="2">Polygenic risk score, score poligenico di predizione livelli di FVIII</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>3966663</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/3966663" target="_blank">Polygenic risk score (PRS)</a></td>
+						<td>Clinical Observation</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000021</td>
+						<td>Polygenic risk score Factor VIII</td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+					<tr>
+						<td rowspan="6">CKD stage</td>
+						<td rowspan="6">Chronic kidney disease stage, stadio di malattia renale cronica</td>
+						<td>1</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>443614</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/443614" target="_blank">Chronic kidney disease stage 1</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>443601</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/443614" target="_blank">Chronic kidney disease stage 2</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>3A</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>45763854</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/443614" target="_blank">Chronic kidney disease stage 3A</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>3B</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>45763855</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/443614" target="_blank">Chronic kidney disease stage 3B</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>443612</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/443614" target="_blank">Chronic kidney disease stage 4</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>CONDITION</td>
+						<td>condition_concept_id</td>
+						<td>443611</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/443614" target="_blank">Chronic kidney disease stage 5</a></td>
+						<td>Disorder</td>
+						<td>Condition</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td rowspan="2">CKD PRS score</td>
+						<td rowspan="2">Polygenic risk score for CKD, score poligenico di predizione di rischio malattia renale</td>
+						<td rowspan="2"></td>
+						<td rowspan="2">MEASUREMENT</td>
+						<td>measurement_concept_id</td>
+						<td>3966663</td>
+						<td><a href="https://athena.ohdsi.org/search-terms/terms/3966663" target="_blank">Polygenic risk score (PRS)</a></td>
+						<td>Clinical Observation</td>
+						<td>Measurement</td>
+						<td>SNOMED</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>measurement_source_concept_id</td>
+						<td>2000000017</td>
+						<td>Chronic kidney disease Polygenic risk score</a></td>
+						<td>Staging / Scales</td>
+						<td>Measurement</td>
+						<td>MASLD</td>
+						<td>Concetto custom mappato nel vocabolario MASLD</td>
+					</tr>
+
+
+	
+
+
+                </tbody>
+            </table>
+        </section>
+		<footer>
+		<p>&copy; Progetto – PNC- E3-2022-23683266 – DIAGNOSTICA AVANZATA (HLS-DA) DAL TITOLO “INNOVA” finanziato dal Ministero della Salute nell’ambito del Piano Nazionale Complementare Ecosistema Innovativo della Salute.</p>
+		</footer>
+    </main>
+</body>
+</html>
